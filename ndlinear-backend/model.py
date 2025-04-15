@@ -40,12 +40,17 @@ def run_training(cfg):
     loss_fn = nn.CrossEntropyLoss()
     loss_vals = []
 
-    for _ in range(5):
+    for _ in range(20):
         opt.zero_grad()
         out = clf(X)
         loss = loss_fn(out, y)
         loss.backward()
         opt.step()
         loss_vals.append(float(loss.item()))
+        
+    return {
+        "loss_history": loss_vals,
+        "param_count": sum(p.numel() for p in clf[0].parameters())  # first layer = Linear or NdLinear
+    }
 
-    return {"loss_history": loss_vals}
+    

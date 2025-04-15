@@ -5,9 +5,18 @@ import {
   LinearScale,
   PointElement,
   LineElement,
+  Legend,
+  Tooltip,
 } from "chart.js";
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Legend,
+  Tooltip
+);
 
 export default function TrainChart({ datasets }) {
   const colors = ["rgb(99, 102, 241)", "rgb(16, 185, 129)"];
@@ -20,6 +29,7 @@ export default function TrainChart({ datasets }) {
       borderColor: colors[idx % colors.length],
       backgroundColor: `${colors[idx % colors.length]}44`,
       tension: 0.3,
+      pointRadius: 3,
     })),
   };
 
@@ -28,14 +38,14 @@ export default function TrainChart({ datasets }) {
       className="p-4 bg-white rounded-lg shadow mt-8"
       style={{ height: "300px" }}
     >
-      <h3 className="text-lg font-bold mb-2">
-        📉 Training Loss: Linear vs NdLinear
-      </h3>
       <Line
         data={data}
         options={{
           responsive: true,
           maintainAspectRatio: false,
+          plugins: {
+            legend: { display: true, position: "top" },
+          },
           scales: {
             y: {
               beginAtZero: true,

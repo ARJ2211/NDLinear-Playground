@@ -14,9 +14,12 @@ export default function App() {
   });
 
   return (
-    <main className="min-h-screen bg-gray-50 text-gray-800">
+    <main className="min-h-screen bg-gray-50 text-gray-800 font-sans">
       <Hero />
-      <section id="playground" className="px-4 py-10 max-w-6xl mx-auto">
+      <section
+        id="playground"
+        className="max-w-5xl mx-auto px-6 py-12 space-y-12"
+      >
         <h2 className="text-4xl font-bold text-center mb-10">
           🧠 NdLinear Playground
         </h2>
