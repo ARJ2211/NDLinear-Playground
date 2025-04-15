@@ -68,7 +68,7 @@ export default function Visualizer({ config }) {
         )}
 
         <p className="mt-4 text-gray-600">
-          Both layers are trained on randomly generated inputs for 5 epochs
+          Both layers are trained on randomly generated inputs for 20 epochs
           using a binary classification task. This lets you visually compare
           loss behavior and convergence speed.
         </p>
