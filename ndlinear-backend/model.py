@@ -17,7 +17,9 @@ def run_forward(cfg):
     input_flat = input_tensor.view(batch, -1) if cfg.layer_type == "Linear" else input_tensor
     output = layer(input_flat)
     param_count = sum(p.numel() for p in layer.parameters())
-    return list(output.shape), param_count
+    sample = output[0].detach().cpu().numpy().tolist()  # first sample
+    return list(output.shape), param_count, sample
+
 
 def run_training(cfg):
     layer = get_layer(cfg.layer_type, cfg.input_dims, cfg.output_dims)
@@ -30,7 +32,7 @@ def run_training(cfg):
 
     clf = nn.Sequential(
         layer,
-        nn.Flatten() if cfg.layer_type == "ndlinear" else nn.Identity(),
+        nn.Flatten() if cfg.layer_type == "NdLinear" else nn.Identity(),
         nn.Linear(int(torch.prod(torch.tensor(cfg.output_dims))), 2)
     )
 
