@@ -96,6 +96,16 @@ export default function Visualizer({ config }) {
             </p>
             <ul className="list-disc ml-6 space-y-1">
               <li>
+                In this task, <strong>nn.Linear</strong> converges quickly due
+                to its simplicity and full flattening of input features.{" "}
+                <strong>NdLinear</strong>, while slower to converge, preserves
+                the spatial structure of tensors — a feature that becomes
+                valuable for structured input like images, patches, or
+                sequences. This example shows that architecture choice must
+                consider data modality and task complexity, not just training
+                speed.
+              </li>
+              <li>
                 <strong>NdLinear</strong> typically starts with more parameters
                 but preserves multidimensional structure.
               </li>
