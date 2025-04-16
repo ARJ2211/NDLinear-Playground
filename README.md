@@ -163,7 +163,7 @@ If you use NdLinear, please cite:
 
 ## 🧠 Credits
 
-Built by [Aayush Jadhav](https://github.com/ARJ2211) for the NdLinear internship application.
+Built by [Aayush Jadhav](https://github.com/ARJ2211).
 
 Inspired by the amazing work by Ensemble AI.  
 Repo: https://github.com/ensemble-core/NdLinear
